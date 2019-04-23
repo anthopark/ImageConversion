@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from flask import Flask, render_template, request, redirect
 import jinja2
 import os
@@ -17,6 +19,7 @@ def post():
 	if request.method == 'POST':
 		return render_template('post.html')
 	return render_template('get.html')
+
 
 if __name__ == '__main__':
 	port = int(os.environ.get('PORT', 8000))

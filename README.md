@@ -1,6 +1,5 @@
-flask-boilerplate
-=================
+# Image Conversion
 
-Ready to use and deploy to Heroku!
+## Authors
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+* Anthony Park kunhp1@uci.edu

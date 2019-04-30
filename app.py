@@ -19,9 +19,14 @@ def display_main_page():
 @app.route('/uploader', methods=['GET', 'POST'])
 def upload_file():
 	if request.method == 'POST':
+		# when submit is clicked(POST)
+
+		# uploaded_file is the file object that is uploaded from user
 		uploaded_file = request.files['file']
+		# saving the uploaded img to UPLOADED_PATH
 		uploaded_file.save(os.path.join(app.config['UPLOAD_FOLDER'],
 										secure_filename(uploaded_file.filename)))
+	  
 		return render_template('result.html')
 	elif request.method == 'GET':
 		return 'REQUEST METHOD IS NOT POST' 

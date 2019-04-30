@@ -22,7 +22,9 @@ def upload_file():
 		uploaded_file = request.files['file']
 		uploaded_file.save(os.path.join(app.config['UPLOAD_FOLDER'],
 										secure_filename(uploaded_file.filename)))
-	return render_template('result.html')
+		return render_template('result.html')
+	elif request.method == 'GET':
+		return 'REQUEST METHOD IS NOT POST' 
 
 @app.route('/post', methods=['GET','POST'])
 def post():

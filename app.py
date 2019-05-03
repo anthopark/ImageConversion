@@ -2,6 +2,7 @@
 
 from flask import Flask, render_template, request, redirect
 from werkzeug import secure_filename
+from googlevision_api import encode_image
 import jinja2
 import os
 
@@ -21,12 +22,11 @@ def upload_file():
 	if request.method == 'POST':
 		# when submit is clicked(POST)
 
-		# uploaded_file is the file object that is uploaded from user
+		# uploaded_file is the image file object that is uploaded from user
 		uploaded_file = request.files['file']
-		# saving the uploaded img to UPLOADED_PATH
-		uploaded_file.save(os.path.join(app.config['UPLOAD_FOLDER'],
-										secure_filename(uploaded_file.filename)))
-	  
+		
+		base64_converted_img = encode_image(uploaded_file)
+
 		return render_template('result.html')
 	elif request.method == 'GET':
 		return 'REQUEST METHOD IS NOT POST' 
@@ -36,6 +36,8 @@ def post():
 	if request.method == 'POST':
 		return render_template('post.html')
 	return render_template('get.html')
+
+
 
 
 if __name__ == '__main__':

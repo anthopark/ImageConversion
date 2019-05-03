@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+import json
 from flask import Flask, render_template, request, redirect
 from werkzeug import secure_filename
 from googlevision_api import encode_image, make_post_request
@@ -27,7 +27,11 @@ def upload_file():
 
 		base64_converted_img = encode_image(uploaded_file)
 		
-		print(make_post_request(base64_converted_img))
+		response = make_post_request(base64_converted_img)
+
+		print(json.loads(response.text))
+		
+		
 
 
 		return render_template('result.html')

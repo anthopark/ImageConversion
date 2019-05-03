@@ -1,5 +1,7 @@
 import base64
-
+import requests
+import json
+from api_key_module import API_KEY 
 
 def encode_image(image):
     image_content = image.read()
@@ -9,14 +11,13 @@ def encode_image(image):
 def make_post_request(base64_stream):
 
     # importing the requests library
-    import requests
+
 
     # defining the api-endpoint
-    API_ENDPOINT = "https://vision.googleapis.com/v1/images:annotate"
+    API_ENDPOINT = "https://vision.googleapis.com/v1/images:annotate?key=" + API_KEY
 
-    # your API key here
     # retrieved form creating project and asking for credentials
-    API_KEY = ''
+    
 
     # your source code here
     source_code = '''
@@ -36,8 +37,7 @@ def make_post_request(base64_stream):
                 },
                 "features": [
                     {
-                        "type": "LABEL_DETECTION",
-                        "maxResults": 1
+                        "type": "TEXT_DETECTION"
                     }
                 ]
             }
@@ -45,6 +45,6 @@ def make_post_request(base64_stream):
     }
 
     # sending post request and saving response as response object
-    response = requests.post(url=API_ENDPOINT, data=json.dumps(request))
+    response = requests.post(url=API_ENDPOINT, data=json.dumps(json_request))
 
     return response

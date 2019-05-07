@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block title %}Uploader{% endblock %}
 {% block content %}
-<html>
-   <body>
+    <h1 class="cover-heading">Cover your page.</h1>
+    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+    <p class="lead">
       <form action = "http://0.0.0.0:8000/uploader" method = "POST" 
          enctype = "multipart/form-data">
          <input type = "file" name = "file" />
          <input type = "submit"/>
       </form>
-   </body>
-</html>
+      <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+    </p>
+
 {% endblock %}

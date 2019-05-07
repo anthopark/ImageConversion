@@ -20,13 +20,7 @@ def make_post_request(base64_stream):
     
 
     # your source code here
-    source_code = '''
-    print("Hello, world!")
-    a = 1
-    b = 2
-    print(a + b)
-    '''
-    # no source code needed i think?
+
 
     # data to be sent to api
     json_request = {

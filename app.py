@@ -29,12 +29,14 @@ def upload_file():
 		
 		response = make_post_request(base64_converted_img)
 
-		print(json.loads(response.text))
+		response_json = json.loads(response.text)
 		
-		
-
+		print(type(response_json))
+		print(response_json)
+		return response_json["responses"][0]["textAnnotations"][0]["description"] # now it's a list of dict
 
 		return render_template('result.html')
+	
 	elif request.method == 'GET':
 		return 'REQUEST METHOD IS NOT POST' 
 

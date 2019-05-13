@@ -1,7 +1,8 @@
 import base64
 import requests
 import json
-from api_key_module import API_KEY 
+from api_key_module import API_KEY
+from flask import jsonify
 
 def encode_image(image):
     image_content = image.read()
@@ -23,11 +24,12 @@ def make_post_request(base64_stream):
 
 
     # data to be sent to api
+    base64_stream_string = base64_stream.decode('utf-8')
     json_request = {
         "requests": [
             {
                 "image": {
-                    "content": base64_stream
+                    "content": base64_stream_string
                 },
                 "features": [
                     {
@@ -40,5 +42,4 @@ def make_post_request(base64_stream):
 
     # sending post request and saving response as response object
     response = requests.post(url=API_ENDPOINT, data=json.dumps(json_request))
-
     return response

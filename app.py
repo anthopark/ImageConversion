@@ -31,14 +31,14 @@ def upload_file():
 
 		response_json = json.loads(response.text)
 
-		print(type(response_json))
-		print(response_json)
+
+		print(response_json["responses"][0]["textAnnotations"][0]["description"])
 		result_str = response_json["responses"][0]["textAnnotations"][0]["description"] # now it's a list of dict
 
 		return render_template('result.html', result_str=result_str)
 	
 	elif request.method == 'GET':
-		return 'REQUEST METHOD IS NOT POST' 
+		return 'REQUEST METHOD IS NOT POST'
 
 @app.route('/post', methods=['GET','POST'])
 def post():

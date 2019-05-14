@@ -41,11 +41,31 @@
     <div class= "mycenter">
     <h1 class="cover-heading"><strong>This is your result!</strong></h1>
     </div>
-    <p class="lead">{{ result_str }}</p>
-    <button type="button">Copy your result?</button> 
+    <p class="lead" id="result">{{ result_str }}</p>
+    <!-- The text field -->
+    <input type="text" value = {{ result_str }} id="myInput">
+
+    <!-- The button used to copy the text -->
+    <button onclick="myFunction()">Copy result!</button> 
     {% endblock %}
   </div>
+  <script>
+    function myFunction() {
+    /* Get the text field */
+    var copyText = document.getElementById("result");
   
+    /* Select the text field */
+    //copyText.select();
+  
+    /* Copy the text inside the text field */
+    // document.execCommand("copy");
+    //var mytext = navigator.clipboard.writeText("summer");
+    //copyText.textContent
+    navigator.clipboard.writeText("summer")
+    /* Alert the copied text */
+    //alert("Copied the text: " + mytext.value);
+  } 
+  </script>
 </main>
 
 <footer class="footer mt-auto py-3">

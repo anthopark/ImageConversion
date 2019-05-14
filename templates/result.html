@@ -43,7 +43,7 @@
     </div>
     <p class="lead" id="result">{{ result_str }}</p>
     <!-- The text field -->
-    <input type="text" value = {{ result_str }} id="myInput">
+    <input type="text" value ="{{ result_str }}" id="myInput">
 
     <!-- The button used to copy the text -->
     <button onclick="myFunction()">Copy result!</button> 
@@ -52,18 +52,17 @@
   <script>
     function myFunction() {
     /* Get the text field */
-    var copyText = document.getElementById("result");
+    var copyText = document.getElementById("myInput");
   
     /* Select the text field */
-    //copyText.select();
+    copyText.select();
   
     /* Copy the text inside the text field */
-    // document.execCommand("copy");
+    document.execCommand("copy");
     //var mytext = navigator.clipboard.writeText("summer");
-    //copyText.textContent
-    navigator.clipboard.writeText("summer")
+      
     /* Alert the copied text */
-    //alert("Copied the text: " + mytext.value);
+    alert("Copied the text: " + mytext.value);
   } 
   </script>
 </main>

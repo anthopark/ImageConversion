@@ -33,7 +33,7 @@ def upload_file():
 
 
 		print(response_json["responses"][0]["textAnnotations"][0]["description"])
-		result_str = response_json["responses"][0]["textAnnotations"][0]["description"] # now it's a list of dict
+		result_str = str(response_json["responses"][0]["textAnnotations"][0]["description"]) # now it's a list of dict
 
 		return render_template('result.html', result_str=result_str)
 	

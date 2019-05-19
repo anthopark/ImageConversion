@@ -29,12 +29,18 @@ def upload_file():
 		
 		response = make_post_request(base64_converted_img)
 
-		response_json = json.loads(response.text)
+		response_json = json.loads((response.text))
 
 
-		print(response_json["responses"][0]["textAnnotations"][0]["description"])
-		result_str = str(response_json["responses"][0]["textAnnotations"][0]["description"]) # now it's a list of dict
-
+		#print(response_json["responses"][0]["textAnnotations"][0]["description"])
+		initial_str = response_json["responses"][0]["textAnnotations"][0]["description"] # now it's a list of dict
+		result_str =""
+		for i in initial_str:
+			if i == "\n":
+				result_str += " "
+			else:
+				result_str += i
+		print(result_str)
 		return render_template('result.html', result_str=result_str)
 	
 	elif request.method == 'GET':

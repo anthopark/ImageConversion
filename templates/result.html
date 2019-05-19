@@ -1,53 +1,19 @@
-
-<!doctype html>
-<html lang="en" class="h-100">
-  <head>
-    <meta charset="utf-8">
-    <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-      
-      div.mycenter {
-                    text-align: center;
-      }
-    </style>
-    <!-- Custom styles for this template -->
-    <link href="sticky-footer.css" rel="stylesheet">
-  </head>
-  <body class="d-flex flex-column h-100">
-    <!-- Begin page content -->
-
-
-<main role="main" class="flex-shrink-0">
+{% extends "base.html" %}
+{% block title %}GET Request{% endblock %}
+{% block content %}
+<main role="main" class="flex-shrink-0"> <!-- attempted to put the correct html into base correctly-->
   <div class="container">
     <h1 class="mt-5">ImageConversion</h1>
-    {% block title %}{% endblock %}
-    {% block content %}
     <div class= "mycenter">
     <h1 class="cover-heading"><strong>This is your result!</strong></h1>
     </div>
     <p class="lead" id="result">{{ result_str }}</p>
     <!-- The text field -->
-    <input type="text" value ="{{ result_str }}" id="myInput">
-
+    
+    <input type="text" value ="{{ result_str }}" rows= '4' columns = '50' id="myInput"> <!-- went back to input bc it seems simpler-->
+    <!-- <textarea type= "text" rows='4' columns= '50' id = "myInput"> "{{"result_str"}}" </textarea> --> <!-- my attempt to get a larger text area-->
     <!-- The button used to copy the text -->
     <button onclick="myFunction()">Copy result!</button> 
-    {% endblock %}
   </div>
   <script>
     function myFunction() {
@@ -69,8 +35,14 @@
 
 <footer class="footer mt-auto py-3">
   <div class="container">
-    <span class="text-muted">Extra options coming soon.</span>
+    <span class="text-muted">Image converted from <a href="https://cloud.google.com/vision/docs/ocr">Google Vision OCR API.</a></span>
+  </div>
+  <div class= "container">
+    <span class="text-muted">Produced by Anthony Park and John Le.</span>
   </div>
 </footer>
 </body>
 </html>
+{% endblock %}
+
+

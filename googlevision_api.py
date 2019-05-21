@@ -1,7 +1,13 @@
 import base64
 import requests
 import json
-from api_key_module import API_KEY
+
+import os
+
+if 'google_vision_api' in os.environ:
+    API_KEY = os.environ['google_vision_api']
+else:
+    from api_key_module import API_KEY
 
 
 def encode_image(image):

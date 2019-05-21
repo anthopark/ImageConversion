@@ -1,8 +1,7 @@
 .vscode/
-ImgCon/
 OCR_API_KEYS.json
 api_key_module.py
 .env
-venv/
 __pycache__/
 *.pyc
+venv3/

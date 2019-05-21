@@ -20,5 +20,4 @@ requests
 SecretStorage
 six
 urllib3
-vboxapi
 Werkzeug

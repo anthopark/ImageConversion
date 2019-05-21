@@ -11,19 +11,10 @@ def encode_image(image):
 
 def make_post_request(base64_stream):
 
-    # importing the requests library
-
-
     # defining the api-endpoint
     API_ENDPOINT = "https://vision.googleapis.com/v1/images:annotate?key=" + API_KEY
 
-    # retrieved form creating project and asking for credentials
-    
 
-    # your source code here
-
-
-    # data to be sent to api
     base64_stream_string = base64_stream.decode('utf-8')
 
     json_request = {
